@@ -1,7 +1,7 @@
 const app = Vue.createApp({
     data() {
         return {
-            principal: 10000,
+            principal: 1000000,
             interestRate: 1,
             term: 12,
             processAmount: 0,
@@ -21,6 +21,9 @@ const app = Vue.createApp({
                 this.processAmount = num + this.processAmount
             }
             this.items.push(['-', '-', this.sumInterest, '-'])
+        },
+        clear() {
+            this.items = []
         }
     }
 })

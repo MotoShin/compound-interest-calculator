@@ -16,8 +16,8 @@
         １ヶ月の利率: <input type="number" rows="10" v-model.number="interestRate" />
         <br>
         期間: <input type="number" rows="10" v-model.number="term" />
-        <br>
-        <button v-on:click="calculate()">計算</button>
+        <br><br>
+        <button v-on:click="calculate()">計算</button>    <button v-on:click="clear()">クリア</button>
       </p>
       <table border="1" style="border-collapse: collapse">
         <tr>
