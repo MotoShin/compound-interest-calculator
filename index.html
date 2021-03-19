@@ -9,13 +9,14 @@
 
   <body>
     <h1>複利計算機: Github Pages</h1>
-    <div id='app'>
+    <h2>複利計算</h2>
+    <div id='app1'>
       <p>
         元本: <input type="number" rows="10" v-model.number="principal" />
         <br>
         １ヶ月の利率: <input type="number" rows="10" v-model.number="interestRate" />
         <br>
-        期間: <input type="number" rows="10" v-model.number="term" />
+        期間（月）: <input type="number" rows="10" v-model.number="term" />
         <br><br>
         <button v-on:click="calculate()">計算</button>    <button v-on:click="clear()">クリア</button>
       </p>
@@ -24,6 +25,48 @@
             <th>借入期間</th>
             <th>月初残高</th>
             <th>1ヶ月の利息</th>
+            <th>月末残高</th>
+        </tr>
+        <tr v-for="item in items">
+            <td v-for="num in item">
+                {{ num }}
+            </td>
+        </tr>
+      </table>
+    </div>
+    <h2>支払い計算</h2>
+    <div id='app2'>
+      <p>
+        元本: <input type="number" rows="10" v-model.number="principal" />
+        <br>
+        １年の利率: <input type="number" rows="10" v-model.number="interestRate" />
+        <br>
+        期間（年）: <input type="number" rows="10" v-model.number="term" />
+        <br>
+        表示期間（月）: <input type="number" rows="10" v-model.number="display" />
+        <br>
+        <br>
+        <button v-on:click="calculate()">計算</button>    <button v-on:click="clear()">クリア</button>
+      </p>
+      <table border="1" style="border-collapse: collapse">
+        <tr>
+          <th></th>
+          <th colspan="5">元利均等返済</th>
+          <th></th>
+          <th colspan="5">元金均等返済</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>月初残高</th>
+            <th>元本の支払</th>
+            <th>利息の支払</th>
+            <th>支払合計</th>
+            <th>月末残高</th>
+            <th></th>
+            <th>月初残高</th>
+            <th>元本の支払</th>
+            <th>利息の支払</th>
+            <th>支払合計</th>
             <th>月末残高</th>
         </tr>
         <tr v-for="item in items">
